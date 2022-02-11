@@ -16,10 +16,12 @@ public class Main {
       return mainS.size();
     }
 
+    // O(1)
     void add(int val) {
       mainS.push(val);
     }
 
+    // O(N)
     int remove() {
       if(size()==0){
         System.out.println("Queue underflow");
