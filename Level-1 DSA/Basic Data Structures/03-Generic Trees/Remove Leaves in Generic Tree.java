@@ -138,7 +138,7 @@ public class Main {
       Node child = node.children.get(i);
 
       if(child.children.size()==0){
-        // My child node is a leaf node
+        // My child node is a leaf node.
         node.children.remove(i);
         // Remove that child node from children ArrayList
         // We have removed edge linking between leaf nodes & parent
