@@ -5,6 +5,11 @@ public class Main {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
+
+    //constructor for Node curr = new Node(arr[i]); calls
+    Node(int val){
+      data = val;
+    }
   }
 
   public static void display(Node node) {
@@ -22,22 +27,29 @@ public class Main {
 
   public static Node construct(int[] arr) {
     Node root = null;
+    //stk.top contains parent of current arr[i]
+    Stack<Node> stk = new Stack<>();
 
-    Stack<Node> st = new Stack<>();
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] == -1) {
-        st.pop();
-      } else {
-        Node t = new Node();
-        t.data = arr[i];
+    for(int i=0; i<arr.length; i++){
+      if(arr[i]==-1){
+        //end of child marker node
+        stk.pop(); //PostOrder(child to parent)
 
-        if (st.size() > 0) {
-          st.peek().children.add(t);
-        } else {
-          root = t;
+      }else{
+        // 1. Creation of Node
+        Node curr = new Node(arr[i]);
+
+        if(stk.isEmpty()){
+          //curr node is root node(root has no parent)
+          root = curr;
+        }else{
+          //Node parent = stk.peek();
+          //2. Make curr node as child of parent
+          stk.peek().children.add(curr);
         }
 
-        st.push(t);
+        //3. PreOrder(Push curr node in stack)
+        stk.push(curr);
       }
     }
 
