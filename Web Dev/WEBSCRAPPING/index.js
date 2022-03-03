@@ -3,8 +3,11 @@ let request = require("request");
 let jsdom = require("jsdom");
 let { JSDOM } = jsdom;
 
+//file system module
+let fs = require("fs");
+
 let url =
-  "https://www.espncricinfo.com/series/afghanistan-in-bangladesh-2021-22-1299826/bangladesh-vs-afghanistan-1st-t20i-1299832/match-report";
+  "https://www.espncricinfo.com/series/afghanistan-in-bangladesh-2021-22-1299826/bangladesh-vs-afghanistan-1st-t20i-1299832/full-scorecard";
 //callback -> request -> data get
 request(url, cb);
 // ch is called by your request
@@ -42,12 +45,14 @@ function parseHTML(html) {
 
   // all collapsibles -> team -> team details
   let bothInningHtml = MyDocument.querySelectorAll(".Collapsible");
-  let i = 0;
-  while (i < bothInningHtml.length) {
+
+  for (let i = 0; i < bothInningHtml.length; i++) {
     let singleInning = bothInningHtml[i];
     // team name get
     let teamNameHtml = singleInning.querySelector("h5");
-    //fs.writeFileSync(`inning${i+1}.html`, inningHtml);
+    // store the collapsible tables html in separate .html files
+    // fs.writeFileSync(`inning${i + 1}.html`, singleInning.innerHTML);
+
     // name correct -> name compare ->
     let teamNameRaw = teamNameHtml.textContent;
     let teamNameArr = teamNameRaw.split("INNINGS");
@@ -57,7 +62,5 @@ function parseHTML(html) {
       console.log("Winning team is " + teamName);
       // code -> single inning
     }
-
-    i++;
   }
 }
