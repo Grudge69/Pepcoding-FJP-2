@@ -93,22 +93,20 @@ public class Main {
 
 ////////////////////// CODE IS HERE ////////////////////////
   public static void levelOrder(Node node){
-    Queue<Node> q = new LinkedList<>();
+    Queue<Node> q = new ArrayDeque<>();
 
     q.add(node);
 
-    String ans = "";
     while(!q.isEmpty()){
       Node curr = q.remove();
-      ans += curr.data + " ";
+      System.out.print(curr.data + " ");
+
       for(Node child: curr.children){
         q.add(child);
       }
     }
-
-    ans += ".";
-
-    System.out.println(ans);
+    
+    System.out.println(".");
   }
 
   public static void main(String[] args) throws Exception {
