@@ -3,4 +3,4 @@ NAME				RUNS			BALLS		MAIDENS				4s				6s			STRIKE RATE				OPPONENT TEAM
 Ruturaj Gaikwad		32				27			41					3				1			118.51			Kolkata Knight Riders	
 Faf du Plessis		86				59			104					7				3			145.76			Kolkata Knight Riders	
 Robin Uthappa		31				15			26					0				3			206.66			Kolkata Knight Riders	
-Moeen Ali		37				20			36					2				3			185.00			Kolkata Knight Riders	
+Moeen Ali		    37				20			36					2				3			185.00			Kolkata Knight Riders	
