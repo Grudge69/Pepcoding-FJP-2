@@ -44,7 +44,7 @@ public class Main {
     return root;
   }
 
- //// SOLUTION STARTS FROM HERE   
+ ////////////// SOLUTION STARTS FROM HERE ///////////////////////////
   static class Pair{
     Node node;
     int state; 
