@@ -54,10 +54,23 @@ public class Main {
             return;
         }
 
-        if(node.data == data){
-            state = 1;
-        }else if(state == 0){
-            predecessor = node;
+        //ALGO:
+        // if state == 0, 
+        //      check if data == curr node.data
+        //          true -> set state = 1 
+        //          false -> set predecessor = curr node 
+        // if state == 1, 
+        //      set successor = curr node
+        //      set state = 2
+        // DO NOTHING for state == 2
+        // REPEAT ABOVE while processing all children in EULER TREE(Recursion Tree)
+        
+        if(state == 0){
+            if(node.data == data){
+                state = 1;
+            }else{
+                predecessor = node;
+            }
         }else if(state == 1){
             successor = node;
             state = 2;
