@@ -1,0 +1,11 @@
+automation has to be used for scrapping of bigger websites like YOUTUBE, GITHUB, etc.
+
+user promises, async & await
+
+can do everything that is done in webscrapping
+
+definition: tasks like logging in by entering details can be automated by this
+
+used in TESTING profile jobs
+
+tool used is PUPPETEER
