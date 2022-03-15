@@ -44,52 +44,26 @@ public class Main {
     return root;
   }
 
- ////////////// SOLUTION STARTS FROM HERE ///////////////////////////
-  static class Pair{
-    Node node;
-    int state; 
+  
+  static int ceil;
+  static int floor;
+  public static void ceilAndFloor(Node node, int data) {
+    if(node == null) return;
 
-    Pair(Node node, int state){
-      this.node = node;
-      this.state = state;
-    
-    }
-  }
-
-  public static void IterativePreandPostOrder(Node node) {
-    Stack<Pair> stk = new Stack<>();
-    StringBuilder pre = new StringBuilder();
-    StringBuilder post = new StringBuilder();
-
-    stk.push(new Pair(node, -1));
-
-    // Algorithm
-    // if state = -1 => pre-order, state++
-    // if state = children.size => post-order, pop()
-    // if state>=0 && state<=children.size - 1 => push(child), state++
-
-    while(stk.size()>0){
-      Pair top = stk.peek();
-      
-      if(top.state == -1){
-        pre.append(top.node.data + " ");
-        top.state++;
-
-      }else if(top.state == top.node.children.size()){
-        post.append(top.node.data + " ");
-        stk.pop();
-
-      }else{
-        //get the child at index=state from the children arraylist
-        Pair child = new Pair(top.node.children.get(top.state), -1);
-        stk.push(child);
-
-        top.state++;
-      }
+    //if curr node's data is behind curr ceil and ahead of our data => curr node's data is our ceil as it is closer to data
+    if(node.data>data && node.data<ceil){
+      ceil = node.data;
     }
 
-    System.out.println(pre.toString());
-    System.out.println(post.toString());
+    //if curr node's data is ahead of curr floor and behind our data => curr node's data is our floor as it is closer to data
+    if(node.data<data && node.data>floor){
+      floor = node.data;
+    }
+
+    //check ceil and floor for all the children nodes as well
+    for(Node child: node.children){
+      ceilAndFloor(child, data);
+    }
   }
 
   public static void main(String[] args) throws Exception {
@@ -101,8 +75,14 @@ public class Main {
       arr[i] = Integer.parseInt(values[i]);
     }
 
+    int data = Integer.parseInt(br.readLine());
+
     Node root = construct(arr);
-    IterativePreandPostOrder(root);
+    ceil = Integer.MAX_VALUE;
+    floor = Integer.MIN_VALUE;
+    ceilAndFloor(root, data);
+    System.out.println("CEIL = " + ceil);
+    System.out.println("FLOOR = " + floor);
   }
 
 }
