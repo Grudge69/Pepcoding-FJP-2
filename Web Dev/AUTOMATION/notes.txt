@@ -8,4 +8,8 @@ definition: tasks like logging in by entering details can be automated by this
 
 used in TESTING profile jobs
 
-tool used is PUPPETEER
+tool used is PUPPETEER, a browser comes with it called CHROMIUM
+
+JS commands --> PUPPETEER --> Chrome browser
+
+Emulates user actions like submitting code in Hackerrank, getting vaccine updates from COWIN website etc.
