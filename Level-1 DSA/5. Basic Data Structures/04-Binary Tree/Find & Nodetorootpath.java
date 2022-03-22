@@ -90,6 +90,7 @@ public class Main {
       return false;
     }
 
+    //either curr nodes data matches the target OR we find target in left subtree of curr node OR we find it in right subtree
     return (node.data == data ? true: false) || find(node.left, data) || find(node.right, data);
   }
 
