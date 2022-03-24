@@ -7,9 +7,8 @@ console.log("before");
 // console.log("File data -> " + data);
 
 //Asynchronous
-//order of f1 and f2 file reading is not fixed
+//order of f1 and f2 file reading is fixed as reading of f2 depends on callback of f1
 fs.readFile("f1.txt", cb);
-fs.readFile("f2.txt", cb2);
 
 function cb(err, data) {
   if (err) {
@@ -17,6 +16,8 @@ function cb(err, data) {
   } else {
     console.log("File data -> " + data);
   }
+
+  fs.readFile("f2.txt", cb2);
 }
 
 function cb2(err, data) {
