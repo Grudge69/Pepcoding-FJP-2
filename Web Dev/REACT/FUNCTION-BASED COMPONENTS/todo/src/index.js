@@ -1,186 +1,53 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+// import PrintMyNames from "./PrintMyNames";
+// import Todo from "./Todo";
 
+// cannot change -> static
+// function Counter() {
+//   return (
+//     <div>
+//       <button>+</button>
+//       <p>0</p>
+//       <button>-</button>
+//     </div>
+//   );
+// }
 
-class AddTask extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      taskDesc: "",
-    };
-  }
-  handleTaskTextChange(e) {
+class Counter extends React.Component {
+  //state mein woh chij daalo jo change karni hai
+  state = {
+    count: 0,
+  };
+  //jis interaction se jo change krna hai woh change krdo state mein
+
+  incrementCounter = () => {
+    // this.state.count++; //not possible
     this.setState({
-      taskDesc: e.target.value,
+      count: this.state.count + 1,
     });
-  }
+  };
 
-  handleAddTaskClick() {
-    this.props.handlerToCollectTaskInfo(this.state.taskDesc);
+  decrementCounter = () => {
+    // this.state.count--; //not possible
     this.setState({
-      taskDesc: "",
+      count: this.state.count - 1,
     });
-  }
+  };
 
+  //if you change the state then render function will run again with the new state variable
   render() {
     return (
-      <form>
-        <input
-          type="text"
-          value={this.state.taskDesc}
-          onChange={(e) => this.handleTaskTextChange(e)}
-        />
-        <input
-          type="button"
-          value="Add Task"
-          onClick={() => this.handleAddTaskClick()}
-        />
-      </form>
+      <div>
+        <button onClick={this.incrementCounter}>+</button>
+        <p>{this.state.count}</p>
+        <button onClick={this.decrementCounter}>-</button>
+      </div>
     );
   }
 }
 
-class TaskList extends React.Component {
-  handleTaskClick(taskDesc) {
-    this.props.handlerToCollectTaskClickInfo(taskDesc);
-  }
-
-  render() {
-    let list = [];
-    
-    for (let i = 0; i < this.props.tasks.length; i++) {
-      let task = this.props.tasks[i];
-      let spanAction;
-      
-      if (task.isFinished) {
-        spanAction = (
-          <span
-            class="material-icons"
-            onClick={() => this.handleTaskClick(task.desc)}
-          >
-            close
-          </span>
-        );
-      } else {
-        spanAction = (
-          <span
-            class="material-icons"
-            onClick={() => this.handleTaskClick(task.desc)}
-          >
-            done
-          </span>
-        );
-      }
-
-      let listItem = (
-        <div key={i}>
-          <span>{task.desc}</span>
-          {spanAction}
-        </div>
-      );
-      list.push(listItem);
-    }
-
-    return (
-      <>
-        <div className={this.props.forStyling}>
-          <div className="list-container">
-            <div className="title">{this.props.purpose}</div>
-            <div className="content">
-              {list}
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
-}
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      tasks: [
-        {
-          desc: "Switch off light",
-          isFinished: false,
-        },
-        {
-          desc: "Turn On Fan",
-          isFinished: true,
-        },
-        {
-          desc: "Make Tea",
-          isFinished: false,
-        },
-        {
-          desc: "Make Dinner",
-          isFinished: true,
-        },
-      ],
-    };
-  }
-
-  handleNewTask(taskDesc) {
-    let oldTasks = this.state.tasks.slice();
-    oldTasks.push({
-      desc: taskDesc,
-      isFinished: false,
-    });
-    this.setState({
-      tasks: oldTasks,
-    });
-  }
-
-  handleTaskStatusUpdate(taskDesc, newStatus) {
-    let oldTasks = this.state.tasks.slice();
-
-    let taskItem = oldTasks.find((ot) => ot.desc == taskDesc);
-    taskItem.isFinished = newStatus;
-
-    this.setState({
-      tasks: oldTasks,
-    });
-  }
-
-  render() {
-    let tasks = this.state.tasks;
-    let todoTasks = tasks.filter((t) => t.isFinished == false);
-    let doneTasks = tasks.filter((t) => t.isFinished == true);
-
-    return (
-      <>
-        <div className="add-task">
-          <AddTask
-            handlerToCollectTaskInfo={(taskDesc) =>
-              this.handleNewTask(taskDesc)
-            }
-          />
-        </div>
-        <div className="task-lists">
-          <TaskList
-            handlerToCollectTaskClickInfo={(taskDesc) =>
-              this.handleTaskStatusUpdate(taskDesc, true)
-            }
-            tasks={todoTasks}
-            purpose="Tasks to do"
-            forStyling="todo"
-          />
-          <TaskList
-            handlerToCollectTaskClickInfo={(taskDesc) =>
-              this.handleTaskStatusUpdate(taskDesc, false)
-            }
-            tasks={doneTasks}
-            purpose="Finished tasks"
-            forStyling="finished"
-          />
-        </div>
-      </>
-    );
-  }
-}
-
+// READ Botton to Top
 // DOM Render -> content print -> put the html in div with id = root,
-ReactDOM.render(<App></App>, document.getElementById("root"));
+ReactDOM.render(<Counter></Counter>, document.getElementById("root"));
