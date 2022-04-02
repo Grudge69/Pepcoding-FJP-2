@@ -1,12 +1,10 @@
 import React from "react";
 
 class AddTask extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      taskDesc: "",
-    };
-  }
+  state = {
+    taskDesc: "",
+  };
+
   handleTaskTextChange(e) {
     this.setState({
       taskDesc: e.target.value,
@@ -93,30 +91,26 @@ class TaskList extends React.Component {
 }
 
 class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      tasks: [
-        {
-          desc: "Switch off light",
-          isFinished: false,
-        },
-        {
-          desc: "Turn On Fan",
-          isFinished: true,
-        },
-        {
-          desc: "Make Tea",
-          isFinished: false,
-        },
-        {
-          desc: "Make Dinner",
-          isFinished: true,
-        },
-      ],
-    };
-  }
+  state = {
+    tasks: [
+      {
+        desc: "Switch off light",
+        isFinished: false,
+      },
+      {
+        desc: "Turn On Fan",
+        isFinished: true,
+      },
+      {
+        desc: "Make Tea",
+        isFinished: false,
+      },
+      {
+        desc: "Make Dinner",
+        isFinished: true,
+      },
+    ],
+  };
 
   handleNewTask(taskDesc) {
     let oldTasks = this.state.tasks.slice();

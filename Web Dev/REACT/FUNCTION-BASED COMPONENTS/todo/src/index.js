@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react"; //useState is a hook which lets us use state like behaviour of class components in functional components
 import ReactDOM from "react-dom";
 import "./index.css";
 // import PrintMyNames from "./PrintMyNames";
 // import Todo from "./Todo";
+// import CounterClass from "./CounterClass";
 
 // cannot change -> static
 // function Counter() {
@@ -15,39 +16,27 @@ import "./index.css";
 //   );
 // }
 
-class Counter extends React.Component {
-  //state mein woh chij daalo jo change karni hai
-  state = {
-    count: 0,
-  };
-  //jis interaction se jo change krna hai woh change krdo state mein
-
-  incrementCounter = () => {
-    // this.state.count++; //not possible
-    this.setState({
-      count: this.state.count + 1,
-    });
+function CounterFn() {
+  // count -> state variable define -> initial val=0
+  // updatecount() -> update
+  let [count, updateCount] = useState(0); //0 is initial value
+  const incrementCounter = () => {
+    updateCount(count + 1);
   };
 
-  decrementCounter = () => {
-    // this.state.count--; //not possible
-    this.setState({
-      count: this.state.count - 1,
-    });
+  const decrementCounter = () => {
+    updateCount(count - 1);
   };
 
-  //if you change the state then render function will run again with the new state variable
-  render() {
-    return (
-      <div>
-        <button onClick={this.incrementCounter}>+</button>
-        <p>{this.state.count}</p>
-        <button onClick={this.decrementCounter}>-</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button onClick={incrementCounter}>+</button>
+      <p>{count}</p>
+      <button onClick={decrementCounter}>-</button>
+    </div>
+  );
 }
 
 // READ Botton to Top
 // DOM Render -> content print -> put the html in div with id = root,
-ReactDOM.render(<Counter></Counter>, document.getElementById("root"));
+ReactDOM.render(<CounterFn></CounterFn>, document.getElementById("root"));
