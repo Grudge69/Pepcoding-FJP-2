@@ -12,17 +12,23 @@ public class Main {
             return 0;
         }
 
+        // ans = + infinity for MIN comparison
         int ans = Integer.MAX_VALUE;
+        // check for all jumps possible at that idx
         for (int jump = 1; jump <= jumps[idx]; jump++) {
-            if (jump + idx <= n) {
+            //if we are allowed to make that jump
+            if (idx + jump <= n) {
+                //minimum of all the answers form every possible jumps
                 ans = Math.min(ans, climb(n, jumps, idx + jump));
             }
         }
 
+        //add 1 if we have found a possible answer
         if (ans != Integer.MAX_VALUE) {
             ans += 1;
         }
 
+        //return the ans
         return ans;
     }
 
