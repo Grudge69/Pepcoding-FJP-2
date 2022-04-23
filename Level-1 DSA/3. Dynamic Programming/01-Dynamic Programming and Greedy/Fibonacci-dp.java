@@ -1,6 +1,6 @@
 // Link: https://nados.io/question/fibonacci-dp
 
-// Solution: Recursive + Memoized + Tabular + Space Optimized
+// Solution: Recursive+Memoized+Tabular+Space Optimized
 
 import java.io.*;
 import java.util.*;
