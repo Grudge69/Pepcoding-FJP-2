@@ -1,6 +1,6 @@
 // Link: https://nados.io/question/tiling-with-m-1-tiles?zen=true
 
-// Solution: rec+memo+tabulate
+// Solution: Rec+Memo+Tabulate
 
 import java.io.*;
 import java.util.*;
