@@ -1,6 +1,6 @@
 // Link: https://nados.io/question/climb-stairs
 
-// Solution: recursion+memoized+tabular+space optimise
+// Solution: recursion+memoized+tabular+space optimize
 
 import java.io.*;
 import java.util.*;
