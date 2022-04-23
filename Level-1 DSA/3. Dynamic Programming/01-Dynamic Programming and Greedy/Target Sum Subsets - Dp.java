@@ -1,6 +1,6 @@
 // Link: https://nados.io/question/target-sum-subsets-dp?zen=true
 
-// Solution: rec+memo+tabular
+// Solution: Rec+Memo+Tabular
 
 import java.io.*;
 import java.util.*;
