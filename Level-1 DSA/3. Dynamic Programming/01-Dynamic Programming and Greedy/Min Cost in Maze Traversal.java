@@ -1,6 +1,6 @@
 // Link: https://nados.io/question/min-cost-in-maze-traversal
 
-// Solution: rec+memo+tabulation+space optimize
+// Solution: Rec+Memo+Tabulation+Space Optimize
 
 import java.io.*;
 import java.util.*;
