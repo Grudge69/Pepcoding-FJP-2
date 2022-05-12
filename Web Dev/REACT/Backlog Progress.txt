@@ -1,5 +1,6 @@
 React Basics
-16 apr A 0:00:00 done
+Movies App started
+16 apr A 0:25:47 done
 
 Reels started - UseEffect explained
 28 apr completed
