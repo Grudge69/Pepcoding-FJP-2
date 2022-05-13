@@ -15,9 +15,21 @@ function InputBox() {
   return (
     <>
       {/* i will work on later */}
-      <button>New</button>
-      <input type="text" value={searchText} onChange={handleText}></input>
-      <input type="number" value={numberOfItems} onChange={handleCount}></input>
+      <button className="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 mx-2 rounded font-bold">
+        New
+      </button>
+      <input
+        className="border rounded py-1 px-1 mx-2 font-bold"
+        type="text"
+        value={searchText}
+        onChange={handleText}
+      ></input>
+      <input
+        className="border rounded py-1 px-1 mx-2 font-bold"
+        type="number"
+        value={numberOfItems}
+        onChange={handleCount}
+      ></input>
     </>
   );
 }
