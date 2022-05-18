@@ -30,7 +30,7 @@ class Tree
             for(int d = 0; d <= md; d++){
                 ArrayList<Integer> list = map.get(d);
                 for(int item: list){
-                    total.addd(item);
+                    total.add(item);
                 }
             }
 
