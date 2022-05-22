@@ -35,7 +35,7 @@ function MoviesTable() {
           <tbody>
             {content.movies.map(function (movie, idx) {
               return (
-                <tr>
+                <tr key={movie._id}>
                   <td className="px-2 text-center">{idx + 1}</td>
                   <td className="px-2 text-center">{movie.title}</td>
                   <td className="px-2 text-center">{movie.genre.name}</td>

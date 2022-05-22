@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Genre() {
-  return (
-    <div>Genre</div>
-  )
+  return <div className="mr-6">Genre</div>;
 }
 
-export default Genre
+export default Genre;

@@ -5,11 +5,11 @@ import Pagination from "./Pagination";
 
 function Movies() {
   return (
-    <>
+    <div>
       <InputBox></InputBox>
       <MoviesTable></MoviesTable>
       <Pagination></Pagination>
-    </>
+    </div>
   );
 }
 
