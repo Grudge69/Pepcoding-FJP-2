@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function MoviesTable() {
+function MoviesTable(props) {
   const [isLoaded, setLoaded] = React.useState(true);
   const [content, setContent] = React.useState([]);
   //So, i will run only 1 time after first execution of return statement
@@ -16,6 +16,23 @@ function MoviesTable() {
     }
     fetchData();
   }, []);
+
+  let filteredContent = [];
+
+  //if there is a request to searchText
+  if (props.searchText) {
+    //convert title to lowercase and filter the values which match lowercase search text
+    filteredContent = content.movies.filter((movie) => {
+      let lowerCaseTitle = movie.title.toLowerCase();
+      let lowerCaseSearchText = props.searchText.toLowerCase();
+      return lowerCaseTitle.includes(lowerCaseSearchText);
+    });
+  }
+  //no request for searching => display entire data from api
+  else {
+    filteredContent = content.movies;
+  }
+
   //data
   return (
     <div>
@@ -33,7 +50,7 @@ function MoviesTable() {
             </tr>
           </thead>
           <tbody>
-            {content.movies.map(function (movie, idx) {
+            {filteredContent.map(function (movie, idx) {
               return (
                 <tr key={movie._id}>
                   <td className="px-2 text-center">{idx + 1}</td>

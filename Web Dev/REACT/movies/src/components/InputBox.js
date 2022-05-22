@@ -1,11 +1,14 @@
 import React from "react";
 
-function InputBox() {
+function InputBox(props) {
   let [searchText, setSearchText] = React.useState("");
   let [numberOfItems, setNumberOfItems] = React.useState(0);
 
   const handleText = (e) => {
+    //local input change krta hai -> UI
     setSearchText(e.target.value);
+    //send to parent
+    props.setGlobalSearchText(e.target.value);
   };
 
   const handleCount = (e) => {
