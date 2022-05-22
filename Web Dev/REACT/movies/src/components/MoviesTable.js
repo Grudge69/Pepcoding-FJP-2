@@ -21,7 +21,7 @@ function MoviesTable(props) {
   let filteredContent = [];
 
   //if there is a request to searchText
-  if (props.searchText) {
+  if (props.searchText != "") {
     //convert title to lowercase and filter the values which match lowercase search text
     filteredContent = content.movies.filter((movie) => {
       let lowerCaseTitle = movie.title.toLowerCase();
