@@ -34,6 +34,9 @@ function MoviesTable(props) {
     filteredContent = content.movies;
   }
 
+  //filter further according to the count of movies mentioned
+  filteredContent = filteredContent.slice(0, props.moviesCount);
+
   //data
   return (
     <div>

@@ -2,7 +2,7 @@ import React from "react";
 
 function InputBox(props) {
   let [searchText, setSearchText] = React.useState("");
-  let [numberOfItems, setNumberOfItems] = React.useState(0);
+  let [numberOfItems, setNumberOfItems] = React.useState(9);
 
   const handleText = (e) => {
     //local input change krta hai -> UI
@@ -13,6 +13,8 @@ function InputBox(props) {
 
   const handleCount = (e) => {
     setNumberOfItems(e.target.value);
+    //send to parent
+    props.setGlobalMoviesCount(e.target.value);
   };
 
   return (

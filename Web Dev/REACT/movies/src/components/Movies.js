@@ -9,10 +9,22 @@ function Movies() {
     console.log("movies " + searchText);
     setSearchText(searchText);
   };
+
+  let [moviesCount, setMoviesCount] = React.useState(9);
+  const setGlobalMoviesCount = (numMovies) => {
+    console.log("movies " + numMovies);
+    setMoviesCount(numMovies);
+  };
   return (
     <div>
-      <InputBox setGlobalSearchText={setGlobalSearchText}></InputBox>
-      <MoviesTable searchText={searchText}></MoviesTable>
+      <InputBox
+        setGlobalSearchText={setGlobalSearchText}
+        setGlobalMoviesCount={setGlobalMoviesCount}
+      ></InputBox>
+      <MoviesTable
+        searchText={searchText}
+        moviesCount={moviesCount}
+      ></MoviesTable>
       <Pagination></Pagination>
     </div>
   );
