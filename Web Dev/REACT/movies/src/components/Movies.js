@@ -11,9 +11,9 @@ function Movies() {
   };
 
   let [moviesCount, setMoviesCount] = React.useState(9);
-  const setGlobalMoviesCount = (numMovies) => {
-    console.log("movies " + numMovies);
-    setMoviesCount(numMovies);
+  const setGlobalMoviesCount = (moviesCount) => {
+    console.log("movies " + moviesCount);
+    setMoviesCount(moviesCount);
   };
   return (
     <div>
