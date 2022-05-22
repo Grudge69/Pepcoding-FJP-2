@@ -17,6 +17,7 @@ function MoviesTable(props) {
     fetchData();
   }, []);
 
+  //cannot change state content, which is why we make a separate copy to filter it and then display it from that
   let filteredContent = [];
 
   //if there is a request to searchText
