@@ -15,7 +15,7 @@ function InputBox() {
   return (
     <>
       {/* i will work on later */}
-      <button className="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 mx-2 rounded font-bold">
+      <button className="text-white bg-blue-500 hover:bg-blue-700 px-4 py-2 mx-2 rounded font-bold">
         New
       </button>
       <input
