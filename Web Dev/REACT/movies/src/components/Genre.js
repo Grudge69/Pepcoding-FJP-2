@@ -23,7 +23,7 @@ function Genre(props) {
   return (
     <div className="mr-6">
       <div
-        className="mr-6 border-2 w-40 text-center h-10 font-bold hover:bg-red-500"
+        className="mr-6 border-2 w-40 text-center h-10 font-bold cursor-pointer hover:bg-red-500"
         onClick={sendGenre}
       >
         All Genre
@@ -35,7 +35,7 @@ function Genre(props) {
           return (
             <div
               key={genre._id}
-              className="mr-6 border-2 w-40 text-center h-10 font-bold hover:bg-blue-500"
+              className="mr-6 border-2 w-40 text-center h-10 font-bold cursor-pointer hover:bg-blue-500"
               onClick={sendGenre}
             >
               {genre.name}
