@@ -17,6 +17,7 @@ function MoviesTable(props) {
     fetchData();
   }, []);
 
+  //for delete you need to make changes in the state
   const deleteMovie = (idToBeDeleted) => {
     let restOfTheMovies = content.movies.filter(
       (movie) => movie._id !== idToBeDeleted
