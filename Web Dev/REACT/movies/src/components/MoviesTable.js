@@ -31,7 +31,7 @@ function MoviesTable(props) {
   //if content is fetched from api
   if (content.movies) {
     filteredContent = content.movies;
-    // SEARCHING
+    /////////////////////////////// SEARCHING
     //if there is a request to searchText
     if (props.searchText) {
       //convert title to lowercase and filter the values which match lowercase search text
@@ -46,15 +46,15 @@ function MoviesTable(props) {
       filteredContent = content.movies;
     }
 
-    console.log("movies table : " + props.cGenre);
-    //FILTER according to genre
+    ////////////////////////////// GROUPING
+    //filter according to genre
     if (props.cGenre) {
       filteredContent = filteredContent.filter(function (movie) {
         return movie.genre.name.trim() === props.cGenre.trim();
       });
       console.log("movies table: ", filteredContent);
     }
-    //FILTER according to movie count mentioned
+    //FILTER according to movie count mentioned (PAGINATION)
     filteredContent = filteredContent.slice(0, props.moviesCount);
   }
 
