@@ -17,9 +17,16 @@ function MoviesTable(props) {
     fetchData();
   }, []);
 
+  const deleteMovie = (idToBeDeleted) => {
+    let restOfTheMovies = content.movies.filter(
+      (movie) => movie._id !== idToBeDeleted
+    );
+    let newContent = { movies: restOfTheMovies };
+    setContent(newContent);
+  };
+
   //cannot change state content, which is why we make a separate copy to filter it and then display it from that
   let filteredContent = [];
-
   //if content is fetched from api
   if (content.movies) {
     filteredContent = content.movies;
@@ -76,7 +83,12 @@ function MoviesTable(props) {
                   <td className="px-2 text-center">{movie.numberInStock}</td>
                   <td className="px-2 text-center">{movie.dailyRentalRate}</td>
                   <td>
-                    <button className="text-white bg-red-500 hover:bg-red-700 px-4 py-2 mx-2 font-bold rounded">
+                    <button
+                      className="text-white bg-red-500 hover:bg-red-700 px-4 py-2 mx-2 font-bold rounded"
+                      onClick={() => {
+                        deleteMovie(movie._id);
+                      }}
+                    >
                       Delete
                     </button>
                   </td>
