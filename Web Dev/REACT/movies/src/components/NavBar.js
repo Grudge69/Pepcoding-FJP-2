@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -7,10 +8,10 @@ function NavBar() {
         className="font-medium leading-tight text-3xl text-white hover:text-yellow-200 inline-block
       mr-4 cursor-pointer"
       >
-        IMDB
+        <Link to="/home">IMDB</Link>
       </h2>
       <span className="font-medium text-blue-500 text-xl hover:text-blue-400 cursor-pointer">
-        Login
+        <Link to="/login">Login</Link>
       </span>
     </nav>
   );

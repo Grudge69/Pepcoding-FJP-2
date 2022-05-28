@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function InputBox(props) {
   let [searchText, setSearchText] = React.useState("");
@@ -21,7 +22,7 @@ function InputBox(props) {
     <>
       {/* i will work on later */}
       <button className="text-white bg-blue-500 hover:bg-blue-700 px-4 py-2 mx-2 rounded font-bold">
-        New
+        <Link to="/new">New</Link>
       </button>
       <input
         className="border rounded py-1 px-1 mx-2 font-bold"

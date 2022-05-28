@@ -4,28 +4,20 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import PageNotFound from "./components/PageNotFound";
 import New from "./components/New";
-import Routing from "./Routing";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
+import NavBar from "./components/NavBar";
 function App() {
   return (
     <>
-      <Switch>
-        <Route path="/home">
-          <Home></Home>
-        </Route>
-        <Route path="/login">
-          <Login></Login>
-        </Route>
-        <Route path="/new">
-          <New></New>
-        </Route>
-        <Redirect from="/" to="/home"></Redirect>
-        <Route>
-          <PageNotFound></PageNotFound>
-        </Route>
-      </Switch>
+      <NavBar></NavBar>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/new" element={<New />} />
+        <Route path="*" element={<PageNotFound />} />
+        <Route path="/" element={<Navigate to="/home" replace />} />
+      </Routes>
     </>
-    // <Routing></Routing>
   );
 }
 
