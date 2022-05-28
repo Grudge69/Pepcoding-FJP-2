@@ -5,11 +5,11 @@ import NavBar from "./components/NavBar";
 import Routing from "./Routing";
 function App() {
   return (
-    // <>
-    //   <NavBar></NavBar>
-    //   <Main></Main>
-    // </>
-    <Routing></Routing>
+    <>
+      <NavBar></NavBar>
+      <Main></Main>
+    </>
+    // <Routing></Routing>
   );
 }
 
