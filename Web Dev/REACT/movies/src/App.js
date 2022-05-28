@@ -1,13 +1,11 @@
 //"rfce" to get boiler plate code
 import React from "react";
-import Main from "./components/Main";
-import NavBar from "./components/NavBar";
+import Home from "./components/Home";
 import Routing from "./Routing";
 function App() {
   return (
     <>
-      <NavBar></NavBar>
-      <Main></Main>
+      <Home></Home>
     </>
     // <Routing></Routing>
   );
