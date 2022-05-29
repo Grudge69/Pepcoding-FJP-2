@@ -27,20 +27,19 @@ function Genre(props) {
   return (
     <div className="Genre">
       <div
-        className="
-      mr-6 border-2 w-40 text-center h-10 font-bold"
+        className="mr-6 border-2 w-40 text-center h-10 font-bold cursor-pointer hover:bg-red-500 hover:text-white"
         onClick={sendGenre}
       >
         All Genre
       </div>
-      {isLoaded == true ? (
+      {isLoaded === true ? (
         <div className="font-bold"> Loading...</div>
       ) : (
         content.genres.map(function (genre) {
           return (
             <div
               key={genre._id}
-              className="mr-6 border-2 w-40 text-center h-10 border-t-0 font-bold"
+              className="mr-6 border-2 w-40 text-center h-10 border-t-0 font-bold cursor-pointer hover:bg-blue-500 hover:text-white"
               onClick={sendGenre}
             >
               {genre.name}

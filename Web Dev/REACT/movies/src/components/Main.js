@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Genre from "./Genre";
 import Movies from "./Movies";
 function Main() {
@@ -6,7 +6,7 @@ function Main() {
   const [cPage, setcPage] = React.useState(1);
   const setGlobalGenre = (nGenre) => {
     console.log("main: " + nGenre);
-    if (nGenre == "All Genre") {
+    if (nGenre === "All Genre") {
       setGenre("");
     } else {
       setGenre(nGenre);

@@ -44,7 +44,7 @@ function Movies(props) {
   if (content.movies) {
     filteredContent = content.movies;
     // **************searching*********
-    if (props.searchText != "") {
+    if (props.searchText !== "") {
       filteredContent = content.movies.filter((movie) => {
         let lowerCaseTitle = movie.title.toLowerCase();
         let lowercaseSearchText = searchText.toLowerCase();
@@ -53,10 +53,10 @@ function Movies(props) {
       });
     }
     // ************genre****** -> grouping
-    if (props.cGenre != "") {
+    if (props.cGenre !== "") {
       filteredContent = filteredContent.filter(function (movie) {
         console.log("movies table ", movie.genre.name);
-        return movie.genre.name.trim() == props.cGenre.trim();
+        return movie.genre.name.trim() === props.cGenre.trim();
       });
       console.log("movies table ", filteredContent);
     }

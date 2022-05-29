@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 function MoviesTable(props) {
   // so i will run only one time after first execution of return statement
   let { content, isLoaded, setContent, filteredContent } = props;
@@ -14,7 +14,7 @@ function MoviesTable(props) {
   // data
   return (
     <div>
-      {isLoaded == true ? (
+      {isLoaded === true ? (
         <div className="font-bold">Loading...</div>
       ) : (
         <table className="table-auto">

@@ -21,7 +21,7 @@ function Pagination(props) {
     <>
       {pagesArr.map(function (pageNumber) {
         let css =
-          pageNumber == cPage
+          pageNumber === cPage
             ? "hover:bg-blue-500  border-2 py-2 px-3 rounded bg-blue-500 text-white"
             : "hover:bg-blue-500  border-2 py-2 px-3 rounded ";
         return (
