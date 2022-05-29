@@ -1,22 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 function MoviesTable(props) {
-  const [isLoaded, setLoaded] = React.useState(true);
-  const [content, setContent] = React.useState([]);
-  //So, i will run only 1 time after first execution of return statement
-  useEffect(() => {
-    async function fetchData() {
-      //fetch is inbuilt feature of browser that makes the request to get data -> promise based
-      let response = await fetch(
-        "https://react-backend101.herokuapp.com/movies"
-      );
-      response = await response.json();
-      setLoaded(false);
-      setContent(response);
-    }
-    fetchData();
-  }, []);
-
+  let { content, setContent, isLoaded, cPage } = props;
   //for delete you need to make changes in the state
   const deleteMovie = (idToBeDeleted) => {
     let restOfTheMovies = content.movies.filter(
@@ -54,8 +39,13 @@ function MoviesTable(props) {
       });
       console.log("movies table: ", filteredContent);
     }
+
+    //data according to curr page
+    let startIdx = (cPage - 1) * props.moviesCount;
+    let endIdx = startIdx + props.moviesCount;
+
     //FILTER according to movie count mentioned (PAGINATION)
-    filteredContent = filteredContent.slice(0, props.moviesCount);
+    filteredContent = filteredContent.slice(startIdx, endIdx);
   }
 
   //data
