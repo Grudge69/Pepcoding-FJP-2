@@ -1,37 +1,37 @@
 import React from "react";
 
 function Pagination(props) {
-  let { content, moviesCount, cPage, setCPage } = props;
-
+  let { totalpagesWaliMovies, moviesCount, cPage, setcPage } = props;
+  // total movies, // no of movies in single
   let pagesArr = [];
-  if (content.movies) {
-    //total no. of movies //no. of movies in a single page
-    let noOfPages = Math.ceil(content.movies.length / moviesCount);
+  if (totalpagesWaliMovies) {
+    let noOfPages = Math.ceil(totalpagesWaliMovies.length / moviesCount);
     for (let i = 1; i <= noOfPages; i++) {
       pagesArr.push(i);
     }
   }
-
   return (
-    // <div>
-    //   <button className="hover:bg-blue-500 border-2 px-3 py-2 rounded">
-    //     1
-    //   </button>
-    //   <button className="hover:bg-blue-500 border-2 px-3 py-2 rounded">
-    //     2
-    //   </button>
-    //   <button className="hover:bg-blue-500 border-2 px-3 py-2 rounded">
-    //     3
-    //   </button>
-    // </div>
+    // <div><button className="bg-blue-500  text-white
+    //  py-2 px-3 rounded">1</button>
+    //  <button className="hover:bg-blue-500  border-2
+    //  py-2 px-3 rounded">2</button>
+    //  <button className="hover:bg-blue-500  border-2
+    //  py-2 px-3 rounded">3</button>
+    //  </div>
     <>
       {pagesArr.map(function (pageNumber) {
         let css =
-          pageNumber === cPage
-            ? "hover:bg-blue-500 border-2 px-3 py-2 rounded bg-blue-500 text-white"
-            : "hover:bg-blue-500 border-2 px-3 py-2 rounded";
+          pageNumber == cPage
+            ? "hover:bg-blue-500  border-2 py-2 px-3 rounded bg-blue-500 text-white"
+            : "hover:bg-blue-500  border-2 py-2 px-3 rounded ";
         return (
-          <button key={pageNumber} className={css}>
+          <button
+            className={css}
+            key={pageNumber}
+            onClick={() => {
+              setcPage(pageNumber);
+            }}
+          >
             {pageNumber}
           </button>
         );
