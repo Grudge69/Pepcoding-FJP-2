@@ -1,7 +1,7 @@
 import React from "react";
 
 function MoviesTable(props) {
-  let { content, setContent, isLoaded, cPage } = props;
+  let { content, setContent, isLoaded, cPage} = props;
   //for delete you need to make changes in the state
   const deleteMovie = (idToBeDeleted) => {
     let restOfTheMovies = content.movies.filter(

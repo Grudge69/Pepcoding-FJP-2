@@ -9,7 +9,7 @@ function Movies(props) {
 
   const [content, setContent] = React.useState([]);
   const [isLoaded, setLoaded] = React.useState(true);
-  const [cPage, setCPage] = React.useState(2);
+  const [cPage, setCPage] = React.useState(1);
 
   //MOVIES TABLE GET as 2 components are using content, so better is to pass it to the parent i.e. Movies Component
   //So, i will run only 1 time after first execution of return statement
@@ -55,6 +55,8 @@ function Movies(props) {
       <Pagination
         moviesCount={moviesCount}
         content={content}
+        cPage={cPage}
+        setCPage={setCPage}
       ></Pagination>
     </div>
   );
