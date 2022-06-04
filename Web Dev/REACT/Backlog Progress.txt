@@ -1,6 +1,4 @@
 React Basics
-Movies App started
-24 apr 0:00:00 done
 
 Reels started - UseEffect explained
-28 apr completed
+28 apr 0:00:00 completed
